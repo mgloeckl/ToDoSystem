@@ -1,6 +1,6 @@
 import javafx.scene.control.ComboBox;
 
-public class ControllerStatus {
+public class StatusController {
     public ComboBox status;
 
 
