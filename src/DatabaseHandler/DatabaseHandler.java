@@ -1,6 +1,5 @@
 package DatabaseHandler;
 
-import model.Status;
 import model.db.AbstractDatabase;
 import model.db.MySQLConnector;
 

@@ -1,8 +1,6 @@
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import model.Status;
 
 public class StatusController {
     public TextField nameTextField;

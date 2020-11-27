@@ -1,8 +1,6 @@
 package Datahandler;
 
 import javafx.collections.ObservableList;
-import model.Priority;
-import model.Status;
 
 import java.sql.ResultSet;
 
