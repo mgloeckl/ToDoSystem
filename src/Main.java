@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Main extends Application implements Initializable {
+public class Main extends Application {
 
     /**
      * @ToDo edit run configuration
@@ -36,9 +36,5 @@ public class Main extends Application implements Initializable {
         launch(args);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        DatabaseHandler databaseHandler = DatabaseHandler.getInstance();
-        databaseHandler.setConn(DatabaseHandler.generateConnector());
-    }
+
 }

@@ -3,8 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="48.0" prefWidth="189.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StatusController">
+<?import javafx.scene.text.Text?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StatusController">
    <children>
-      <ComboBox fx:id="status" layoutX="12.0" layoutY="11.0" prefWidth="165.0" promptText="Status" />
+      <Text layoutX="253.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status des ToDo's" AnchorPane.bottomAnchor="332.98828125" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="252.880859375" AnchorPane.topAnchor="51.05078125" />
+      <TextField fx:id="nameTextField" layoutX="226.0" layoutY="105.0" promptText="Status" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="105.0" />
+      <Button layoutX="246.0" layoutY="169.0" mnemonicParsing="false" text="Eingabe beenden" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="169.0" />
+      <Button layoutX="275.0" layoutY="217.0" mnemonicParsing="false" text="Zurück" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="272.0" AnchorPane.topAnchor="217.0" />
+      <ListView fx:id="statusListView" fixedCellSize="0.0" layoutY="-1.0" onMouseClicked="#itemSelected" prefHeight="400.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

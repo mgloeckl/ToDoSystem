@@ -1,5 +1,6 @@
 package model;
 
+import Datahandler.Datahandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import DatabaseHandler.DatabaseHandler;
@@ -42,15 +43,16 @@ public class Status {
         ObservableList<Status> list = FXCollections.observableArrayList();
         DatabaseHandler databaseHandler = DatabaseHandler.getInstance();
         ResultSet res = databaseHandler.read("SELECT * FROM gr6_status");
+        Datahandler.toList(res, list, Status.class);
+        return list;
+    }
+    public static Status toOb(ResultSet r){
+        Status s = null;
         try {
-            while (res.next()) {
-                Status tmp = new Status(res.getString("name"), res.getInt("status_id"));
-                list.add(tmp);
-            }
+            s = new Status(r.getString("name"), r.getInt("status_id"));
         }catch (Exception e){
             e.printStackTrace();
         }
-        return list;
-
+        return s;
     }
 }
