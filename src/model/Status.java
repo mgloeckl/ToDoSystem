@@ -47,6 +47,7 @@ public class Status {
         return list;
     }
     public static Status toOb(ResultSet r){
+        //sd
         Status s = null;
         try {
             s = new Status(r.getString("name"), r.getInt("status_id"));
