@@ -13,10 +13,12 @@ public class PriorityController {
     public TextField nameTextField;
     public Button cancelButton;
 
+
+    ObservableList<Priority> list = Priority.getList();
     Priority selectedItem = null;
 
     public void initialize(){
-        priorityListView.setItems(Priority.getList());
+        priorityListView.setItems(list);
     }
 
     public void itemSelected(MouseEvent mouseEvent) {
@@ -32,14 +34,16 @@ public class PriorityController {
         if(selectedItem != null){
             //update existing item
             selectedItem.setName(nameTextField.getText());
-
+            Priority.updateList(selectedItem);
         } else{
             //insert new
-            Priority tmp = new Priority(Priority.getList().size() + 1, nameTextField.getText());
-            priorityListView.getItems().add(tmp);
+            selectedItem = new Priority(list.size() + 1, nameTextField.getText());
+            priorityListView.getItems().add(selectedItem);
+            Priority.addList(selectedItem);
         }
-        //initialize();
+
         priorityListView.refresh();
+
     }
 
     public void cancelClicked(ActionEvent actionEvent) {
@@ -51,13 +55,17 @@ public class PriorityController {
     public void deleteClicked(ActionEvent actionEvent) {
         if(selectedItem != null){
             // delete item
+            Priority.deleteList(selectedItem);
             priorityListView.getItems().remove(selectedItem.getId() - 1);
+
+
             selectedItem = null;
             nameTextField.clear();
             priorityListView.getSelectionModel().clearSelection();
+            priorityListView.refresh();
+        } else {
+            System.out.println("No selected Item!");
         }
-
-        priorityListView.refresh();
     }
 
     public void newClicked(ActionEvent actionEvent) {

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jdk.jshell.Snippet;
 import model.db.AbstractDatabase;
+import model.db.IDatabase;
 import model.db.MySQLConnector;
 
 import java.sql.PreparedStatement;
@@ -41,7 +42,7 @@ public class Priority {
         return name;
     }
 
-    public static ObservableList<Priority> getList(){
+    public static ObservableList<Priority> getList() {
         ObservableList<Priority> list = FXCollections.observableArrayList();
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
@@ -51,7 +52,7 @@ public class Priority {
 
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 Priority tmp = new Priority(resultSet.getInt("priority_id"), resultSet.getString("name"));
 
                 list.add(tmp);
@@ -62,5 +63,48 @@ public class Priority {
         }
 
         return list;
+    }
+
+
+    public static void updateList(Priority p) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_Priority SET name = '" + p.getName() + "'" + "WHERE priority_id = '" + String.valueOf(p.getId()) + "'");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void addList(Priority p) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Priority(priority_id, name) VALUES ('" + String.valueOf(p.getId()) + "', '" + p.getName() + "')");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    public static void deleteList(Priority p) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("DELETE FROM gr6_Priority WHERE priority_id = '" + String.valueOf(p.getId()) + "'");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
     }
 }
