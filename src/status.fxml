@@ -3,13 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StatusController">
+<AnchorPane prefHeight="325.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StatusController">
    <children>
-      <Text layoutX="253.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status des ToDo's" AnchorPane.bottomAnchor="332.98828125" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="252.880859375" AnchorPane.topAnchor="51.05078125" />
-      <TextField fx:id="nameTextField" layoutX="226.0" layoutY="105.0" promptText="Status" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="105.0" />
-      <Button layoutX="246.0" layoutY="169.0" mnemonicParsing="false" text="Eingabe beenden" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="169.0" />
-      <Button layoutX="275.0" layoutY="217.0" mnemonicParsing="false" text="Zurück" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="272.0" AnchorPane.topAnchor="217.0" />
-      <ListView fx:id="statusListView" fixedCellSize="0.0" layoutY="-1.0" onMouseClicked="#itemSelected" prefHeight="400.0" prefWidth="200.0" />
+      <Label layoutX="290.0" layoutY="23.0" text="Status" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="23.0" />
+      <TextField fx:id="nameTextField" layoutX="337.0" layoutY="19.0" prefHeight="25.0" prefWidth="319.0" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0" />
+      <Button layoutX="501.0" layoutY="361.0" mnemonicParsing="false" onAction="#saveClicked" text="Speichern" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="cancelButton" layoutX="413.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelClicked" text="Abbrechen" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="97.0" />
+      <ListView fx:id="statusListView" onMouseClicked="#itemSelected" prefHeight="280.0" prefWidth="267.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="14.0" layoutY="286.0" mnemonicParsing="false" onAction="#newClicked" text="Neu" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+      <Button layoutX="63.0" layoutY="286.0" mnemonicParsing="false" onAction="#deleteClicked" text="Löschen" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="63.0" />
    </children>
 </AnchorPane>

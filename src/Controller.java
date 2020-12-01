@@ -14,7 +14,7 @@ public class Controller {
             root = FXMLLoader.load(getClass().getResource("status.fxml"));
 
             Stage s = new Stage();
-            s.setTitle("Stati");
+            s.setTitle("Status");
             s.setScene(new Scene(root));
             s.show();
         } catch (IOException e) {

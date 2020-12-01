@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Priority {
-
     private int id;
     private String name;
 
