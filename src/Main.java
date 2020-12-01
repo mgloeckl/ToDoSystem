@@ -1,4 +1,3 @@
-import DatabaseHandler.DatabaseHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
