@@ -1,7 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
-public class ControllerBearbeiter {
+public class UserController {
 
     public TextField name;
     public TextField ort;

@@ -2,7 +2,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class ControllerTodo {
+public class TodoController {
     public TextField name;
     public TextArea beschreibung;
 

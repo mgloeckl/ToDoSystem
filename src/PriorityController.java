@@ -37,9 +37,13 @@ public class PriorityController {
             Priority.updateList(selectedItem);
         } else{
             //insert new
-            selectedItem = new Priority(list.size() + 1, nameTextField.getText());
-            priorityListView.getItems().add(selectedItem);
-            Priority.addList(selectedItem);
+            if(nameTextField.getText().length() > 0){
+                selectedItem = new Priority(list.size() + 1, nameTextField.getText());
+                priorityListView.getItems().add(selectedItem);
+                Priority.addList(selectedItem);
+            }else {
+                System.out.println("Input is empty!");
+            }
         }
 
         priorityListView.refresh();

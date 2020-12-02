@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="319.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerBearbeiter">
+<AnchorPane prefHeight="319.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserController">
    <children>
       <Label layoutX="97.0" layoutY="14.0" text="Neuen Bearbeiter hinzufügen" />
       <TextField fx:id="name" layoutX="51.0" layoutY="46.0" prefHeight="27.0" prefWidth="250.0" promptText="Max Mustermann" />

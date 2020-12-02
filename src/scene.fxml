@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <MenuBar layoutY="7.0" prefHeight="29.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -29,5 +28,12 @@
           </Menu>
         </menus>
       </MenuBar>
+      <ListView fx:id="ToDoListView" layoutY="87.0" onMouseClicked="#onToDoListViewClicked" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0" />
+      <ComboBox fx:id="priorityComboBox" layoutX="323.0" layoutY="37.0" prefHeight="27.0" prefWidth="150.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="37.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="50.0" layoutY="37.0" prefWidth="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="37.0" />
+      <Label layoutX="70.0" layoutY="42.0" text="Staus" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="221.0" layoutY="42.0" text="Priorität" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="42.0" />
+      <TextField fx:id="ToDoNameTextField" layoutY="73.0" prefHeight="17.0" prefWidth="200.0" promptText="Ticketname" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="73.0" />
+      <Pane fx:id="contentPane" layoutX="200.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0" />
    </children>
 </AnchorPane>
