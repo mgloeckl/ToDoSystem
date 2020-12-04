@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import model.Priority;
 import model.Status;
 import model.ToDo;
+import model.User;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ public class Controller {
     public ComboBox<Status> statusComboBox; // befüllen
     public TextField ToDoNameTextField;
     public Pane contentPane;
+    public ListView<User> userListView;
 
     ToDo selectedItem = null;
 
