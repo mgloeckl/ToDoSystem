@@ -1,3 +1,4 @@
+import com.sun.javafx.charts.Legend;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -66,5 +67,9 @@ public class Controller {
             //priorityComboBox.setValue();
             //statusComboBox.setValue();
         }
+    }
+
+    public void onUserListViewClicked(MouseEvent mouseEvent) {
+
     }
 }

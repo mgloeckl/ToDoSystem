@@ -34,6 +34,7 @@
       <Label layoutX="70.0" layoutY="42.0" text="Staus" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="221.0" layoutY="42.0" text="Priorität" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="42.0" />
       <TextField fx:id="ToDoNameTextField" layoutY="73.0" prefHeight="17.0" prefWidth="200.0" promptText="Ticketname" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="73.0" />
-      <Pane fx:id="contentPane" layoutX="200.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0" />
+      <Pane fx:id="contentPane" layoutX="400.0" layoutY="73.0" prefHeight="327.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0" />
+      <ListView fx:id="userListView" layoutX="200.0" layoutY="100.0" onMouseClicked="#onUserListViewClicked" prefHeight="300.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

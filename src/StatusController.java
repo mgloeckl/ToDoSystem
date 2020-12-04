@@ -38,9 +38,13 @@ public class StatusController {
             Status.updateList(selectedItem);
         } else{
             //insert new
-            selectedItem = new Status(nameTextField.getText(), list.size()+ 1);
-            statusListView.getItems().add(selectedItem);
-            Status.addList(selectedItem);
+            if (nameTextField.getText().length() > 0){
+                selectedItem = new Status(nameTextField.getText(), list.size()+ 1);
+                statusListView.getItems().add(selectedItem);
+                Status.addList(selectedItem);
+            } else {
+                System.out.println("Input is empty!");
+            }
         }
 
         statusListView.refresh();
