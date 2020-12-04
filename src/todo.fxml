@@ -10,11 +10,11 @@
       <Label layoutX="16.0" layoutY="100.0" text="Beschreibung" AnchorPane.leftAnchor="20.0" />
       <Label layoutX="20.0" layoutY="252.0" text="Status" AnchorPane.leftAnchor="20.0" />
       <Label layoutX="16.0" layoutY="309.0" text="Priorität" AnchorPane.leftAnchor="20.0" />
-      <TextField fx:id="name" layoutX="95.0" layoutY="57.0" prefHeight="27.0" prefWidth="200.0" promptText="MusterToDo" AnchorPane.rightAnchor="20.0" />
-      <TextArea fx:id="beschreibung" layoutX="95.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" promptText="Musterbeschreibung" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="nameTextField" layoutX="95.0" layoutY="57.0" prefHeight="27.0" prefWidth="200.0" promptText="MusterToDo" AnchorPane.rightAnchor="20.0" />
+      <TextArea fx:id="descriptionTextArea" layoutX="95.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" promptText="Musterbeschreibung" AnchorPane.rightAnchor="20.0" />
       <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancelClicked" text="Abbrechen" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" />
       <Button layoutX="214.0" layoutY="359.0" mnemonicParsing="false" onAction="#addClicked" text="Hinzufügen" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
-      <ComboBox layoutX="95.0" layoutY="247.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
-      <ComboBox layoutX="95.0" layoutY="304.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="95.0" layoutY="247.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
+      <ComboBox fx:id="priorityComboBox" layoutX="95.0" layoutY="304.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
    </children>
 </AnchorPane>

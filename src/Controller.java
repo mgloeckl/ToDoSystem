@@ -23,7 +23,6 @@ public class Controller {
     public ComboBox<Status> statusComboBox; // befüllen
     public TextField ToDoNameTextField;
     public Pane contentPane;
-    public ListView<User> userListView;
 
     ToDo selectedItem = null;
 
@@ -66,12 +65,24 @@ public class Controller {
     public void onToDoListViewClicked(MouseEvent mouseEvent) {
         selectedItem = ToDoListView.getSelectionModel().getSelectedItem();
         if(selectedItem != null){
-            //priorityComboBox.setValue();
-            //statusComboBox.setValue();
+            /**
+             * Stelle die Daten der gewählten ToDos auf der rechten Seite dar
+             */
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("todo.fxml"));
+                Pane todoPane = loader.load();
+
+                TodoController controller = (TodoController) loader.getController();
+                controller.setToDo(selectedItem);
+
+                contentPane.getChildren().add(todoPane);
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+
         }
-    }
-
-    public void onUserListViewClicked(MouseEvent mouseEvent) {
-
     }
 }
