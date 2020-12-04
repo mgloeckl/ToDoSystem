@@ -85,4 +85,22 @@ public class Controller {
 
         }
     }
+
+    public void onUserListViewClicked(MouseEvent mouseEvent) {
+
+    }
+
+    public void onUserClicked(ActionEvent actionEvent) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("user.fxml"));
+
+            Stage s = new Stage();
+            s.setTitle("Benutzer");
+            s.setScene(new Scene(root));
+            s.show();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
