@@ -25,6 +25,9 @@
                     </items>
                   </Menu>
             </items>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onUserClicked" text="Benutzer" />
+              </items>
           </Menu>
         </menus>
       </MenuBar>
