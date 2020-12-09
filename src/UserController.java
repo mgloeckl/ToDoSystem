@@ -1,8 +1,12 @@
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Priority;
 import model.Status;
 import model.User;
 import model.db.AbstractDatabase;
@@ -20,16 +24,13 @@ public class UserController {
     public TextField cityTextField;
     public TextField plzTextField;
     public TextField streetTextField;
+    public ListView<User> userListView;
 
-    private User user;
+    ObservableList<User> list = User.getUser();
+    User selectedItem = null;
 
     public void initialize() {
-        user = User.getUser(1);
-
-        nameTextField.setText(user.getUsername());
-        streetTextField.setText(user.getStreet());
-        cityTextField.setText(user.getCity());
-        plzTextField.setText(String.valueOf(user.getPostcode()));
+        userListView.setItems(list);
     }
 
     public void cancelClicked(ActionEvent actionEvent) {
@@ -38,11 +39,51 @@ public class UserController {
     }
 
     public void saveClicked(ActionEvent actionEvent) {
-        user.setUsername(nameTextField.getText());
-        user.setStreet(streetTextField.getText());
-        user.setCity(cityTextField.getText());
-        user.setPostcode(Integer.valueOf(plzTextField.getText()));
+        if(selectedItem != null){
+            //update existing item
+            nameTextField.setText(selectedItem.getUsername());
+            streetTextField.setText(selectedItem.getStreet());
+            cityTextField.setText(selectedItem.getCity());
+            plzTextField.setText(String.valueOf(selectedItem.getPostcode()));
 
-        User.updateUser(user);
+            User.updateUser(selectedItem);
+        } else{
+            //insert new
+            if(nameTextField.getText().length() > 0){
+
+                // String username, String street, String city, int postcode, int principal_id
+                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.valueOf(plzTextField.getText()), list.size() + 1);
+                userListView.getItems().add(selectedItem);
+                User.addUser(selectedItem);
+
+
+            }else {
+                System.out.println("Input is empty!");
+            }
+
+        }
+
+        userListView.refresh();
     }
+
+    public void newClicked(ActionEvent actionEvent) {
+        selectedItem = null;
+        nameTextField.clear();
+        userListView.getSelectionModel().clearSelection();
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+
+    }
+
+    public void itemClicked(MouseEvent mouseEvent) {
+        selectedItem = userListView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            nameTextField.setText(selectedItem.getUsername());
+            streetTextField.setText(selectedItem.getStreet());
+            cityTextField.setText(selectedItem.getCity());
+            plzTextField.setText(String.valueOf(selectedItem.getPostcode()));
+        }
+    }
+
 }

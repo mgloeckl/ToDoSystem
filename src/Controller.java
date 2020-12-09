@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import model.Priority;
 import model.Status;
 import model.ToDo;
-import model.User;
 
 import java.io.IOException;
 
@@ -84,10 +83,6 @@ public class Controller {
 
 
         }
-    }
-
-    public void onUserListViewClicked(MouseEvent mouseEvent) {
-
     }
 
     public void onUserClicked(ActionEvent actionEvent) {

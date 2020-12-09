@@ -3,18 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TodoController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TodoController">
    <children>
-      <Label layoutX="128.0" layoutY="14.0" text="ToDo hinzufügen" />
+      <Label layoutX="153.0" layoutY="14.0" text="ToDo hinzufügen" />
       <Label layoutX="14.0" layoutY="62.0" text="Name" AnchorPane.leftAnchor="20.0" />
       <Label layoutX="16.0" layoutY="100.0" text="Beschreibung" AnchorPane.leftAnchor="20.0" />
       <Label layoutX="20.0" layoutY="252.0" text="Status" AnchorPane.leftAnchor="20.0" />
       <Label layoutX="16.0" layoutY="309.0" text="Priorität" AnchorPane.leftAnchor="20.0" />
-      <TextField fx:id="nameTextField" layoutX="95.0" layoutY="57.0" prefHeight="27.0" prefWidth="200.0" promptText="MusterToDo" AnchorPane.rightAnchor="20.0" />
-      <TextArea fx:id="descriptionTextArea" layoutX="95.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" promptText="Musterbeschreibung" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="nameTextField" layoutX="95.0" layoutY="57.0" prefHeight="27.0" prefWidth="276.0" promptText="MusterToDo" AnchorPane.rightAnchor="20.0" />
+      <TextArea fx:id="descriptionTextArea" layoutX="95.0" layoutY="100.0" prefHeight="100.0" prefWidth="276.0" promptText="Musterbeschreibung" AnchorPane.rightAnchor="20.0" />
       <Button layoutX="20.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancelClicked" text="Abbrechen" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" />
       <Button layoutX="214.0" layoutY="359.0" mnemonicParsing="false" onAction="#addClicked" text="Hinzufügen" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
-      <ComboBox fx:id="statusComboBox" layoutX="95.0" layoutY="247.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
-      <ComboBox fx:id="priorityComboBox" layoutX="95.0" layoutY="304.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="95.0" layoutY="247.0" prefHeight="27.0" prefWidth="276.0" AnchorPane.rightAnchor="20.0" />
+      <ComboBox fx:id="priorityComboBox" layoutX="95.0" layoutY="304.0" prefHeight="27.0" prefWidth="276.0" AnchorPane.rightAnchor="20.0" />
    </children>
 </AnchorPane>

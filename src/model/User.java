@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.db.AbstractDatabase;
 import model.db.MySQLConnector;
 
@@ -22,20 +24,24 @@ public class User {
         this.principal_id = principal_id;
     }
 
-    public static User getUser(int principal_id) {
+    public static ObservableList<User> getUser () {
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
 
-        User tmp = null;
+        ObservableList<User> list = FXCollections.observableArrayList();
 
         try {
             PreparedStatement statement = conn.getConnection().prepareStatement("SELECT * FROM gr6_Principal");
             ResultSet results = statement.executeQuery();
-            results.next();
-            tmp = new User(results.getString("username"), results.getString("street"), results.getString("city"), results.getInt("postcode"), results.getInt("principal_id"));
+
+            while (results.next()){
+                User tmp = new User(results.getString("username"), results.getString("street"), results.getString("city"), results.getInt("postcode"), results.getInt("principal_id"));
+                list.add(tmp);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return tmp;
+        return list;
     }
 
     public static void updateUser(User u) {
@@ -48,6 +54,23 @@ public class User {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public static void addUser(User p) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+        /*
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Principal(user_id, name) VALUES ('" + String.valueOf(p.getId()) + "', '" + p.getName() + "')");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+         */
+
     }
 
     public String getUsername() {
