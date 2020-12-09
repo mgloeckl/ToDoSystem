@@ -24,10 +24,12 @@
                       <MenuItem mnemonicParsing="false" onAction="#onPriorityClicked" text="anzeigen / bearbeiten" />
                     </items>
                   </Menu>
+                  <Menu mnemonicParsing="false" text="Benutzer">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onUserClicked" text="anzeigen / bearbeiten" />
+                    </items>
+                  </Menu>
             </items>
-              <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onUserClicked" text="Benutzer" />
-              </items>
           </Menu>
         </menus>
       </MenuBar>

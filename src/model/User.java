@@ -48,7 +48,7 @@ public class User {
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_Principal SET username = '" + u.getUsername() + "'," + "street = '" + u.getStreet() + "'," + "postcode = '" + u.getPostcode() + "'," + "city = '" +u.getCity() + "'" + "WHERE principal_id = '" + String.valueOf(u.getPrincipal_id()) + "'");
+            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_Principal SET username = '" + u.getUsername() + "', " + "street = '" + u.getStreet() + "', " + "postcode = '" + u.getPostcode() + "', " + "city = '" +u.getCity() + "'" + "WHERE principal_id = '" + String.valueOf(u.getPrincipal_id()) + "'");
             statement.execute();
 
         } catch (SQLException throwables) {
@@ -56,21 +56,39 @@ public class User {
         }
     }
 
-    public static void addUser(User p) {
+    public static void addUser(User u) {
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
 
-        /*
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Principal(user_id, name) VALUES ('" + String.valueOf(p.getId()) + "', '" + p.getName() + "')");
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Principal(username, street, postcode, city, principal_id) VALUES ('" + u.getUsername() + "', '" + u.getStreet() + "', '" + u.getPostcode() + "', '" + u.getCity() + "', '" + u.getPrincipal_id() + "')");
             statement.execute();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
-         */
+    }
 
+
+    public static void deleteUser(User u) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("DELETE FROM gr6_Principal WHERE principal_id = '" + String.valueOf(u.getPrincipal_id()) + "'");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return username;
     }
 
     public String getUsername() {

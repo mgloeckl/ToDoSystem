@@ -41,22 +41,19 @@ public class UserController {
     public void saveClicked(ActionEvent actionEvent) {
         if(selectedItem != null){
             //update existing item
-            nameTextField.setText(selectedItem.getUsername());
-            streetTextField.setText(selectedItem.getStreet());
-            cityTextField.setText(selectedItem.getCity());
-            plzTextField.setText(String.valueOf(selectedItem.getPostcode()));
+            selectedItem.setUsername(nameTextField.getText());
+            selectedItem.setStreet(streetTextField.getText());
+            selectedItem.setCity(cityTextField.getText());
+            selectedItem.setPostcode(Integer.parseInt(plzTextField.getText()));
 
             User.updateUser(selectedItem);
         } else{
             //insert new
             if(nameTextField.getText().length() > 0){
-
                 // String username, String street, String city, int postcode, int principal_id
-                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.valueOf(plzTextField.getText()), list.size() + 1);
+                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.parseInt(plzTextField.getText()), list.size() + 1);
                 userListView.getItems().add(selectedItem);
                 User.addUser(selectedItem);
-
-
             }else {
                 System.out.println("Input is empty!");
             }
@@ -69,11 +66,29 @@ public class UserController {
     public void newClicked(ActionEvent actionEvent) {
         selectedItem = null;
         nameTextField.clear();
+        streetTextField.clear();
+        cityTextField.clear();
+        plzTextField.clear();
         userListView.getSelectionModel().clearSelection();
     }
 
     public void deleteClicked(ActionEvent actionEvent) {
+        if(selectedItem != null){
+            // delete item
+            User.deleteUser(selectedItem);
+            userListView.getItems().remove(selectedItem.getPrincipal_id() - 1);
 
+
+            selectedItem = null;
+            nameTextField.clear();
+            streetTextField.clear();
+            cityTextField.clear();
+            plzTextField.clear();
+            userListView.getSelectionModel().clearSelection();
+            userListView.refresh();
+        } else {
+            System.out.println("No selected Item!");
+        }
     }
 
     public void itemClicked(MouseEvent mouseEvent) {
