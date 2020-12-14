@@ -60,7 +60,7 @@ public class PriorityController {
         if(selectedItem != null){
             // delete item
             Priority.deleteList(selectedItem);
-            priorityListView.getItems().remove(selectedItem.getId() - 1);
+            list.remove(selectedItem);
 
 
             selectedItem = null;

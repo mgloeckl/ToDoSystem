@@ -3,20 +3,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="264.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserController">
+<AnchorPane prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserController">
    <children>
-      <Label layoutX="203.0" layoutY="55.0" text="Straße" AnchorPane.leftAnchor="203.0" AnchorPane.topAnchor="55.0" />
-      <Label layoutX="204.0" layoutY="19.0" text="Name" AnchorPane.leftAnchor="204.0" AnchorPane.topAnchor="19.0" />
-      <Label layoutX="210.0" layoutY="89.0" text="PLZ" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="89.0" />
-      <Label layoutX="213.0" layoutY="124.0" text="Ort" AnchorPane.leftAnchor="213.0" AnchorPane.topAnchor="124.0" />
+      <Label layoutX="203.0" layoutY="55.0" text="Straße:" AnchorPane.leftAnchor="203.0" AnchorPane.topAnchor="55.0" />
+      <Label layoutX="206.0" layoutY="19.0" text="Name:" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="19.0" />
+      <Label layoutX="210.0" layoutY="89.0" text="PLZ:" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="89.0" />
+      <Label layoutX="213.0" layoutY="124.0" text="Ort:" AnchorPane.leftAnchor="213.0" AnchorPane.topAnchor="124.0" />
       <TextField fx:id="nameTextField" layoutX="257.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="14.0" />
       <TextField fx:id="streetTextField" layoutX="257.0" layoutY="50.0" prefHeight="27.0" prefWidth="343.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.0" />
       <TextField fx:id="plzTextField" layoutX="257.0" layoutY="84.0" prefHeight="27.0" prefWidth="343.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="84.0" />
       <TextField fx:id="cityTextField" layoutX="257.0" layoutY="119.0" prefHeight="27.0" prefWidth="343.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="119.0" />
       <Button layoutX="519.0" layoutY="367.0" mnemonicParsing="false" onAction="#saveClicked" text="Speichern" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="12.0" />
       <Button layoutX="433.0" layoutY="367.0" mnemonicParsing="false" onAction="#cancelClicked" text="Abbrechen" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="93.0" />
-      <ListView fx:id="userListView" layoutY="6.0" onMouseClicked="#itemClicked" prefHeight="220.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="14.0" layoutY="216.0" mnemonicParsing="false" onAction="#newClicked" text="Neu" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" />
-      <Button layoutX="135.0" layoutY="216.0" mnemonicParsing="false" onAction="#deleteClicked" text="Löschen" AnchorPane.bottomAnchor="8.0" />
+      <ListView fx:id="userListView" layoutY="6.0" onMouseClicked="#itemClicked" prefHeight="220.0" prefWidth="200.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="14.0" layoutY="216.0" mnemonicParsing="false" onAction="#newClicked" text="Neu" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="12.0" />
+      <Button layoutX="135.0" layoutY="215.0" mnemonicParsing="false" onAction="#deleteClicked" text="Löschen" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="135.0" />
    </children>
 </AnchorPane>

@@ -1,4 +1,3 @@
-import com.sun.javafx.charts.Legend;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,7 +54,7 @@ public class Controller {
     }
 
     public void initialize(){
-        ToDoListView.setItems(ToDo.getList());
+        ToDoListView.setItems(ToDo.getTodo());
         priorityComboBox.setItems(Priority.getList());
         statusComboBox.setItems(Status.getList());
     }

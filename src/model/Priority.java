@@ -83,7 +83,7 @@ public class Priority {
 
 
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Priority(priority_id, name) VALUES ('" + String.valueOf(p.getId()) + "', '" + p.getName() + "')");
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_Priority(name, priority_id) VALUES ('" + p.getName() + "', " + "NULL)");
             statement.execute();
 
         } catch (SQLException throwables) {
@@ -98,7 +98,7 @@ public class Priority {
 
 
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("DELETE FROM gr6_Priority WHERE priority_id = '" + String.valueOf(p.getId()) + "'");
+            PreparedStatement statement = conn.getConnection().prepareStatement("DELETE FROM gr6_Priority WHERE priority_id = " + p.getId());
             statement.execute();
 
         } catch (SQLException throwables) {

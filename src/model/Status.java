@@ -74,7 +74,7 @@ public class Status {
 
 
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_status(status_id, name) VALUES ('" + String.valueOf(s.getId()) + "', '" + s.getName() + "')");
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_status(status_id, name) VALUES (" + "NULL, '" + s.getName() + "')");
             statement.execute();
 
         } catch (SQLException throwables) {

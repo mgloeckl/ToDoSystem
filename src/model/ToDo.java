@@ -69,7 +69,7 @@ public class ToDo {
         return name;
     }
 
-    public static ObservableList<ToDo> getList() {
+    public static ObservableList<ToDo> getTodo() {
         ObservableList<ToDo> list = FXCollections.observableArrayList();
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
@@ -90,5 +90,42 @@ public class ToDo {
         }
 
         return list;
+    }
+
+    public static void updateTodo(ToDo t) {
+
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_todo SET name = '" + t.getName() + "', " + "description = '" + t.getDescription() + "', " + "status_id = '" + t.getStatus_id() + "', " + "priority_id = '" + t.getPriority_id() + "'" + "WHERE todo_id = '" + String.valueOf(t.getId()) + "'");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void addTodo(ToDo t){
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_todo(todo_id, name, description, status_id, priority_id) VALUES (" + "NULL, '" + t.getDescription() + "', '" + t.getStatus_id() + "', '" + t.getPriority_id() + "')");
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void deleteTodo(ToDo t){
+        AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
+
+
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement("DELETE FROM gr6_todo WHERE todo_id = " + t.getId());
+            statement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

@@ -28,6 +28,7 @@ public class UserController {
 
     ObservableList<User> list = User.getUser();
     User selectedItem = null;
+    int tmp = 0;
 
     public void initialize() {
         userListView.setItems(list);
@@ -51,7 +52,7 @@ public class UserController {
             //insert new
             if(nameTextField.getText().length() > 0){
                 // String username, String street, String city, int postcode, int principal_id
-                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.parseInt(plzTextField.getText()), list.size() + 1);
+                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.parseInt(plzTextField.getText()), User.getUser().size() + 1);
                 userListView.getItems().add(selectedItem);
                 User.addUser(selectedItem);
             }else {
@@ -76,8 +77,7 @@ public class UserController {
         if(selectedItem != null){
             // delete item
             User.deleteUser(selectedItem);
-            userListView.getItems().remove(selectedItem.getPrincipal_id() - 1);
-
+            list.remove(selectedItem);
 
             selectedItem = null;
             nameTextField.clear();
@@ -91,6 +91,7 @@ public class UserController {
         }
     }
 
+
     public void itemClicked(MouseEvent mouseEvent) {
         selectedItem = userListView.getSelectionModel().getSelectedItem();
         if(selectedItem != null){
@@ -100,5 +101,4 @@ public class UserController {
             plzTextField.setText(String.valueOf(selectedItem.getPostcode()));
         }
     }
-
 }
