@@ -25,6 +25,7 @@ public class Controller {
 
     ToDo selectedItem = null;
     private ObservableList<ToDo> todoList;
+    private ObservableList<Status> list;
 
     public void setToDoList(ObservableList<ToDo> list){
         this.todoList = list;
@@ -62,6 +63,7 @@ public class Controller {
         ToDoListView.setItems(ToDo.getTodo());
         priorityComboBox.setItems(Priority.getList());
         statusComboBox.setItems(Status.getList());
+        loadComboBox();
     }
 
 
@@ -102,5 +104,19 @@ public class Controller {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+    private void loadComboBox() {
+        list.add(new Status("All", -69));
+        list = Status.getList();
+        statusComboBox.setItems(list);
+
+    }
+
+    public void onStatusComboBoxClicked(ActionEvent actionEvent) {
+
+    }
+
+    public void onPriorityComboBoxClicked(ActionEvent actionEvent) {
+
     }
 }
