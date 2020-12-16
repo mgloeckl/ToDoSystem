@@ -1,3 +1,4 @@
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,7 +24,11 @@ public class Controller {
     public Pane contentPane;
 
     ToDo selectedItem = null;
+    private ObservableList<ToDo> todoList;
 
+    public void setToDoList(ObservableList<ToDo> list){
+        this.todoList = list;
+    }
 
     public void onStatusClicked(ActionEvent actionEvent) {
         Parent root = null;
@@ -73,6 +78,7 @@ public class Controller {
 
                 TodoController controller = (TodoController) loader.getController();
                 controller.setToDo(selectedItem);
+                setToDoList(ToDoListView.getItems());
 
                 contentPane.getChildren().add(todoPane);
 
