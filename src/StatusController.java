@@ -20,6 +20,8 @@ public class StatusController {
 
     public void initialize() {
         statusListView.setItems(Status.getList());
+
+        //list.add(new Status("Filter auswählen", -1));
     }
 
     public void itemSelected(MouseEvent mouseEvent) {
