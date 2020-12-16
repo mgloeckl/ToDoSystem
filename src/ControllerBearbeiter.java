@@ -9,7 +9,7 @@ public class ControllerBearbeiter {
     public TextField strasse;
 
     public void addClicked(ActionEvent actionEvent) {
-        
+        asdfsdf
     }
 
     public void cancelClicked(ActionEvent actionEvent) {
