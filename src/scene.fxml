@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
@@ -34,8 +41,8 @@
         </menus>
       </MenuBar>
       <ListView fx:id="ToDoListView" layoutY="87.0" onMouseClicked="#onToDoListViewClicked" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0" />
-      <ComboBox fx:id="priorityComboBox" layoutX="323.0" layoutY="37.0" prefHeight="27.0" prefWidth="150.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="37.0" />
-      <ComboBox fx:id="statusComboBox" layoutX="50.0" layoutY="37.0" prefWidth="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="37.0" />
+      <ComboBox fx:id="priorityComboBox" layoutX="323.0" layoutY="37.0" onAction="#onPriorityComboBoxClicked" prefHeight="27.0" prefWidth="150.0" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="37.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="50.0" layoutY="37.0" onAction="#onStatusComboBoxClicked" prefWidth="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="37.0" />
       <Label layoutX="70.0" layoutY="42.0" text="Staus" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="221.0" layoutY="42.0" text="Priorität" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="42.0" />
       <TextField fx:id="ToDoNameTextField" layoutY="73.0" prefHeight="17.0" prefWidth="200.0" promptText="Ticketname" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="73.0" />
