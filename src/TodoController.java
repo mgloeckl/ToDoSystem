@@ -55,18 +55,38 @@ public class TodoController {
     }
 
     public void saveClicked(ActionEvent actionEvent) {
+
+        //nameTextField.getStyleClass().remove("error");
+        //descriptionTextArea.getStyleClass().remove("error");
+
         if(selected != null){
             selected.setName(nameTextField.getText());
             selected.setDescription(descriptionTextArea.getText());
             selected.setPriority_id(priorityComboBox.getSelectionModel().getSelectedItem().getId());
             selected.setStatus_id(statusComboBox.getSelectionModel().getSelectedItem().getId());
             ToDo.updateTodo(selected);
-        } else if (nameTextField.getText().length() > 0){
+        } else if (nameTextField.getText().length() > 0 && descriptionTextArea.getText().length() > 0 && statusComboBox.getSelectionModel() != null && priorityComboBox.getSelectionModel() != null){
             selected = new ToDo(list.size() + 1, nameTextField.getText(), descriptionTextArea.getText(), statusComboBox.getSelectionModel().getSelectedItem().getId(), priorityComboBox.getSelectionModel().getSelectedItem().getId());
             ToDo.addTodo(selected);
 
         } else {
             System.out.println("Input is empty!");
+            if(nameTextField.getText().length() == 0){
+                nameTextField.setStyle("-fx-border-color: red ;");
+                System.out.println("Name is empty");
+            }
+            if(descriptionTextArea.getText().length() == 0){
+                descriptionTextArea.setStyle("-fx-border-color: red ;");
+                System.out.println("Description is empty");
+            }
+            if(statusComboBox.getSelectionModel().isSelected(-1)){
+                statusComboBox.setStyle("-fx-border-color: red ;");
+                System.out.println("Status is empty");
+            }
+            if(priorityComboBox.getSelectionModel().isSelected(-1)){
+                priorityComboBox.setStyle("-fx-border-color: red ;");
+                System.out.println("Priority is empty");
+            }
         }
 
     }
@@ -86,10 +106,17 @@ public class TodoController {
     }
 
     private void clear(){
+        // Felder alle leeren
         selected = null;
         nameTextField.clear();
         descriptionTextArea.clear();
         statusComboBox.getSelectionModel().clearSelection();
         priorityComboBox.getSelectionModel().clearSelection();
+
+        // Farben der Rahmen zurücksetzen
+        nameTextField.setStyle("-fx-border-color: null ;");
+        descriptionTextArea.setStyle("-fx-border-color: null ;");
+        statusComboBox.setStyle("-fx-border-color: null ;");
+        priorityComboBox.setStyle("-fx-border-color: null ;");
     }
 }

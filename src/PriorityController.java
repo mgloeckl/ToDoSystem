@@ -19,6 +19,8 @@ public class PriorityController {
 
     public void initialize(){
         priorityListView.setItems(list);
+
+        //list.add(new Priority(-1, "Filter auswählen"));
     }
 
     public void itemSelected(MouseEvent mouseEvent) {

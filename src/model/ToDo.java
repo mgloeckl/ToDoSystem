@@ -108,7 +108,7 @@ public class ToDo {
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
 
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_todo(todo_id, name, description, status_id, priority_id) VALUES (" + "NULL, '" + t.getDescription() + "', '" + t.getStatus_id() + "', '" + t.getPriority_id() + "')");
+            PreparedStatement statement = conn.getConnection().prepareStatement("INSERT INTO gr6_todo(todo_id, name, description, status_id, priority_id) VALUES (" + "NULL, '" + t.getName() + "', '" + t.getDescription() + "', '" + t.getStatus_id() + "', '" + t.getPriority_id() + "')");
             statement.execute();
 
         } catch (SQLException throwables) {
