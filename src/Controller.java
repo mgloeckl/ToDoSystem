@@ -1,3 +1,4 @@
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +26,8 @@ public class Controller {
 
     ToDo selectedItem = null;
     private ObservableList<ToDo> todoList;
-    private ObservableList<Status> list;
+    private ObservableList<Status> statusList;
+    private ObservableList<Priority> priorityList;
 
     public void setToDoList(ObservableList<ToDo> list){
         this.todoList = list;
@@ -106,9 +108,16 @@ public class Controller {
         }
     }
     private void loadComboBox() {
-        list.add(new Status("All", -69));
-        list = Status.getList();
-        statusComboBox.setItems(list);
+        statusList.add(new Status("All", -69));
+        statusList = FXCollections.concat(statusList, Status.getList());
+        statusComboBox.setItems(statusList);
+
+        priorityList.add(new Priority(-69, "All"));
+        priorityList = FXCollections.concat(priorityList, Priority.getList());
+        priorityComboBox.setItems(priorityList);
+    }
+
+    private void filter(){
 
     }
 
