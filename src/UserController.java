@@ -48,17 +48,29 @@ public class UserController {
             selectedItem.setPostcode(Integer.parseInt(plzTextField.getText()));
 
             User.updateUser(selectedItem);
-        } else{
+        } else if(nameTextField.getText().length() > 0 && streetTextField.getText().length() > 0 && cityTextField.getText().length() > 0 && plzTextField.getText().length() > 0){
             //insert new
-            if(nameTextField.getText().length() > 0){
-                // String username, String street, String city, int postcode, int principal_id
-                selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.parseInt(plzTextField.getText()), User.getUser().size() + 1);
-                userListView.getItems().add(selectedItem);
-                User.addUser(selectedItem);
-            }else {
-                System.out.println("Input is empty!");
+            // String username, String street, String city, int postcode, int principal_id
+            selectedItem = new User(nameTextField.getText(), streetTextField.getText(), cityTextField.getText(), Integer.parseInt(plzTextField.getText()), User.getUser().size() + 1);
+            userListView.getItems().add(selectedItem);
+            User.addUser(selectedItem);
+        }else {
+            if(nameTextField.getText().length() == 0){
+                nameTextField.setStyle("-fx-border-color: red ;");
+                System.out.println("Name is empty");
             }
-
+            if(streetTextField.getText().length() == 0){
+                streetTextField.setStyle("-fx-border-color: red ;");
+                System.out.println("Street is empty");
+            }
+            if(plzTextField.getText().length() == 0){
+                plzTextField.setStyle("-fx-border-color: red ;");
+                System.out.println("PLZ is empty");
+            }
+            if(cityTextField.getText().length() == 0){
+                cityTextField.setStyle("-fx-border-color: red ;");
+                System.out.println("City is empty");
+            }
         }
 
         userListView.refresh();
@@ -71,6 +83,11 @@ public class UserController {
         cityTextField.clear();
         plzTextField.clear();
         userListView.getSelectionModel().clearSelection();
+
+        nameTextField.setStyle("-fx-border-color: null ;");
+        streetTextField.setStyle("-fx-border-color: null ;");
+        plzTextField.setStyle("-fx-border-color: null ;");
+        cityTextField.setStyle("-fx-border-color: null ;");
     }
 
     public void deleteClicked(ActionEvent actionEvent) {

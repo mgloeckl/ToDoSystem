@@ -56,9 +56,6 @@ public class TodoController {
 
     public void saveClicked(ActionEvent actionEvent) {
 
-        //nameTextField.getStyleClass().remove("error");
-        //descriptionTextArea.getStyleClass().remove("error");
-
         if(selected != null){
             selected.setName(nameTextField.getText());
             selected.setDescription(descriptionTextArea.getText());

@@ -37,15 +37,15 @@ public class PriorityController {
             //update existing item
             selectedItem.setName(nameTextField.getText());
             Priority.updateList(selectedItem);
-        } else{
+        } else if (nameTextField.getText().length() > 0){
             //insert new
-            if(nameTextField.getText().length() > 0){
-                selectedItem = new Priority(list.size() + 1, nameTextField.getText());
-                priorityListView.getItems().add(selectedItem);
-                Priority.addList(selectedItem);
-            }else {
-                System.out.println("Input is empty!");
-            }
+            selectedItem = new Priority(list.size() + 1, nameTextField.getText());
+            priorityListView.getItems().add(selectedItem);
+            Priority.addList(selectedItem);
+        } else {
+            // Error
+            nameTextField.setStyle("-fx-border-color: red ;");
+            System.out.println("Priority is empty");
         }
 
         priorityListView.refresh();
@@ -78,5 +78,6 @@ public class PriorityController {
         selectedItem = null;
         nameTextField.clear();
         priorityListView.getSelectionModel().clearSelection();
+        nameTextField.setStyle("-fx-border-color: null ;");
     }
 }
