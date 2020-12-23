@@ -96,6 +96,7 @@ public class ToDo {
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
         try {
+            String sql = "UPDATE gr6_todo SET name = '" + t.getName() + "', " + "description = '" + t.getDescription() + "', " + "status_id = '" + t.getStatus_id() + "', " + "priority_id = '" + t.getPriority_id() + "'" + "WHERE todo_id = '" + String.valueOf(t.getId()) + "'";
             PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_todo SET name = '" + t.getName() + "', " + "description = '" + t.getDescription() + "', " + "status_id = '" + t.getStatus_id() + "', " + "priority_id = '" + t.getPriority_id() + "'" + "WHERE todo_id = '" + String.valueOf(t.getId()) + "'");
             statement.execute();
 
