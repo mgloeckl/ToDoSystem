@@ -1,6 +1,7 @@
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -15,12 +16,17 @@ public class TodoController {
     public ComboBox<Priority> priorityComboBox;
 
     private ToDo selected = null;
+    ListView<ToDo> listView;
 
     ObservableList<ToDo> list = null;
 
     public void setToDo(ToDo item){
         selected = item;
         displayItem();
+    }
+
+    public void setListView(ListView<ToDo> listView) {
+        this.listView = listView;
     }
 
     public void initialize(){
@@ -34,6 +40,7 @@ public class TodoController {
          * Hier sollen die Daten "item" angezeigt werden
          */
         //statusComboBox.setItems();
+        initialize();
 
         nameTextField.setText(selected.getName());
         descriptionTextArea.setText(selected.getDescription());
@@ -56,9 +63,6 @@ public class TodoController {
 
     public void saveClicked(ActionEvent actionEvent) {
 
-        //nameTextField.getStyleClass().remove("error");
-        //descriptionTextArea.getStyleClass().remove("error");
-
         if(selected != null){
             selected.setName(nameTextField.getText());
             selected.setDescription(descriptionTextArea.getText());
@@ -68,7 +72,7 @@ public class TodoController {
         } else if (nameTextField.getText().length() > 0 && descriptionTextArea.getText().length() > 0 && statusComboBox.getSelectionModel() != null && priorityComboBox.getSelectionModel() != null){
             selected = new ToDo(list.size() + 1, nameTextField.getText(), descriptionTextArea.getText(), statusComboBox.getSelectionModel().getSelectedItem().getId(), priorityComboBox.getSelectionModel().getSelectedItem().getId());
             ToDo.addTodo(selected);
-
+            listView.getItems().add(selected);
         } else {
             System.out.println("Input is empty!");
             if(nameTextField.getText().length() == 0){
@@ -88,17 +92,19 @@ public class TodoController {
                 System.out.println("Priority is empty");
             }
         }
-
+        listView.refresh();
     }
 
     public void newClicked(ActionEvent actionEvent) {
         clear();
+        //listView.refresh();
     }
 
     public void deleteClicked(ActionEvent actionEvent) {
         if (selected != null){
             ToDo.deleteTodo(selected);
             list.remove(selected);
+            listView.refresh();
             clear();
         }else {
             System.out.println("Not Todo selected!");

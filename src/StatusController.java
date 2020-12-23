@@ -38,15 +38,16 @@ public class StatusController {
             //update existing item
             selectedItem.setName(nameTextField.getText());
             Status.updateList(selectedItem);
-        } else{
+        } else if (nameTextField.getText().length() > 0){
             //insert new
-            if (nameTextField.getText().length() > 0){
-                selectedItem = new Status(nameTextField.getText(), list.size()+ 1);
-                statusListView.getItems().add(selectedItem);
-                Status.addList(selectedItem);
-            } else {
-                System.out.println("Input is empty!");
-            }
+            selectedItem = new Status(nameTextField.getText(), list.size()+ 1);
+            statusListView.getItems().add(selectedItem);
+            Status.addList(selectedItem);
+
+        } else {
+            // Error
+            nameTextField.setStyle("-fx-border-color: red ;");
+            System.out.println("Status is empty");
         }
 
         statusListView.refresh();
@@ -79,5 +80,6 @@ public class StatusController {
         selectedItem = null;
         nameTextField.clear();
         statusListView.getSelectionModel().clearSelection();
+        nameTextField.setStyle("-fx-border-color: null ;");
     }
 }

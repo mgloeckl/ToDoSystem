@@ -60,7 +60,7 @@ public class Status {
 
         AbstractDatabase conn = new MySQLConnector("d0345763", "5AHEL2021", "rathgeb.at", 3306, "d0345763");
         try {
-            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_status SET name = '" + s.getName() + "'" + "WHERE status_id = '" + String.valueOf(s.getId()) + "'");
+            PreparedStatement statement = conn.getConnection().prepareStatement("UPDATE gr6_status SET name = '" + s.getName() + "' WHERE status_id = '" + String.valueOf(s.getId()) + "'");
             statement.execute();
 
         } catch (SQLException throwables) {
